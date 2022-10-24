@@ -1,3 +1,5 @@
+import { GlassesList } from "./models/GlassesList.js";
+
 let dataGlasses = [
     { id: "G1", src: "./img/g1.jpg", virtualImg: "./img/v1.png", brand: "Armani Exchange", name: "Bamboo wood", color: "Brown", price: 150, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ea voluptates officiis? " },
     { id: "G2", src: "./img/g2.jpg", virtualImg: "./img/v2.png", brand: "Arnette", name: "American flag", color: "American flag", price: 150, description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. In assumenda earum eaque doloremque, tempore distinctio." },
@@ -10,24 +12,5 @@ let dataGlasses = [
     { id: "G9", src: "./img/g9.jpg", virtualImg: "./img/v9.png", brand: "Coarch", name: "MIDNIGHT VIXEN REMIX", color: "Blue, Black", price: 120, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit consequatur soluta ad aut laborum amet." }
 ];
 
-const renderDetail = (index) => {
-    let detail = `
-    <div class="card" style="width: 100%;">
-        <div class="card-body">
-            <h5 class="card-title">${dataGlasses[index].name} - ${dataGlasses[index].brand} (${dataGlasses[index].color})</h5>
-            <p class="card-text">${dataGlasses[index].description}</p>
-        </div>
-    </div>`;
-    document.querySelector('#glassesInfo').innerHTML = detail;
-    console.log(index);
-};
-
-for (let index in dataGlasses) {
-    // console.log(itemGlass);
-    // console.log(itemGlass.src);
-    document.querySelector('#vglassesList').innerHTML += `
-        <img id='${dataGlasses[index].id}' onClick='renderDetail(${index})' class='vglasses__items' src='${dataGlasses[index].src}'></img>`;
-}
-
-
-
+let glassesList = new GlassesList(dataGlasses);
+glassesList.renderGlassesList();

@@ -57,6 +57,13 @@
 
         <!-- MAIN JS -->       
         <script type="module" src="./js/main.js"></script>
+        <script>
+            const removeGlasses = (isRemoved) => {
+                document.querySelector('#avatar img').style.display = isRemoved
+                    ? 'none'
+                    : 'block';
+            };
+        </script>
   
 </body>
 
